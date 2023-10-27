@@ -18,7 +18,7 @@ const App = () => {
     <>
       <div className="container-fluid" id="contenedor">
         <h1>Tic Tac Toe in React.js</h1>
-        {gameStarted ? (
+        {gameStarted ? (    /* gameStarted se establece en true, lo que hace que se oculte el <div className="container"> y aparezca el <div><GameBoard /></div>. */
           <div>
             <GameBoard />
           </div>

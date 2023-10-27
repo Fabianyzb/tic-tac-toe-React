@@ -10,7 +10,7 @@ const GameBoard = () => {
   const [isDraw, setIsDraw] = useState(false); // Nuevo estado para empate
 
 
-  const message = isDraw ? "It's a draw!" : `It is  ${go}'s turn.`;
+  const message = isDraw ? "It's a draw!" : `It is  ${go}'s turn.`; //Mensaje si sale empate
 
 
   console.log(cells);
