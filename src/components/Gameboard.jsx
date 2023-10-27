@@ -3,7 +3,8 @@ import Cell from "./Cell";
 import "./GameBoard.css";
 
 const GameBoard = () => {
-  const [cells, setCells] = useState(["", "", "", "", "", "", "", "", ""]);
+  const initialCells = ["", "", "", "", "", "", "", "", ""];
+  const [cells, setCells] = useState(initialCells);
   const [go, setGo] = useState("circle");
   const [winningMessage, setWinningMessage] = useState(null);
   const [isDraw, setIsDraw] = useState(false); // Nuevo estado para empate
@@ -14,7 +15,7 @@ const GameBoard = () => {
 
   console.log(cells);
 
-  const checkScore = () => {
+  const checkScore = () => { //Posibilidades de jugadas
     const winningCombos = [
       [0, 1, 2],
       [3, 4, 5],
@@ -30,7 +31,7 @@ const GameBoard = () => {
       let circleWins = array.every((cell) => cells[cell] === "circle");
 
       if (circleWins) {
-        setWinningMessage("Circle wins!");
+        setWinningMessage("Circle wins!"); //Gana Circulo
         return
       }
     });
@@ -39,7 +40,7 @@ const GameBoard = () => {
       let crossWins = array.every((cell) => cells[cell] === "cross");
 
       if (crossWins) {
-        setWinningMessage("Cross wins!");
+        setWinningMessage("Cross wins!");//Gana la Equis
         return
       }
     });
@@ -52,17 +53,27 @@ const GameBoard = () => {
 
   };
 
+  const resetGame = () => {
+    setCells(initialCells); // Restablece las celdas
+    setGo("circle"); // Restablece el turno
+    setWinningMessage(null); // Borra el mensaje de ganador o empate
+    setIsDraw(false); // Restablece el estado de empate
+  };
+
   useEffect(() => {
-    /* CADA VEZ QUE EL ARRAY cells CAMBIE, CORRE LA FUNCION checkScore */
+    //CADA VEZ QUE EL ARRAY cells CAMBIE, CORRE LA FUNCION checkScore 
     checkScore();
   }, [cells]);
 
 
-
-  return (
+//Celdas del tablero \ Interacciones
+  return ( 
     <>
       <div className="app">
         <h2>{winningMessage || message}</h2>
+        <button className="reset-button" onClick={resetGame}>
+          Reset Game
+        </button>
         <div className="gameboard">
           {cells.map((cell, index) => (
             <Cell
@@ -83,10 +94,3 @@ const GameBoard = () => {
 };
 
 export default GameBoard;
-
-{
-  /* <div className="gameboard">
-<p></p>
-<Tablero />
-</div> */
-}

@@ -2,10 +2,10 @@ import React from "react";
 import "./GameBoard.css";
 
 const Cell = ({ id, cell, setCells, go, setGo, cells, winningMessage }) => {
-  /* evento onCLick para cambiar el array del useState */
+  /* cada vez que se haga click para cambiar el array del useState */
   const handleClick = (e) => {
-    const taken =
-      e.target.firstChild.classList.contains("circle") ||
+    const taken = //Revisar si donde estamos haciendo click contiene un child element que tiene un className(si tiene una X o O)
+      e.target.firstChild.classList.contains("circle") ||  
       e.target.firstChild.classList.contains("cross");
 
     if (!taken) {
