@@ -1,0 +1,48 @@
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  background: radial-gradient( circle, rgb(43, 209, 255) 0, rgb(255, 0, 204) 44%, rgb(48, 13, 38) 100% );
+}
+#contenedor {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background: rgb(97, 96, 96);
+  color: white;
+  border-radius: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.container {
+  background-color: rgb(79, 77, 77);
+  border-radius: 5px;
+}
+
+.square-button {
+  width: 100px;
+  height: 100px;
+  margin: 1%;
+  background-color: rgb(56, 55, 55);
+  border: none;
+  font-size: 70px;
+  transition: background-color 0.1s, color 0.1s; 
+  cursor: pointer; 
+}
+
+.square-button:hover {
+  background-color: rgb(106, 103, 100); /* Cambiar el color de fondo al pasar el mouse por encima */
+}
+
+#x{
+  color: aqua;
+}
+
+#o{
+  color: deeppink;
+}
+
+
+
